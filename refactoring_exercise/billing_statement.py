@@ -17,6 +17,10 @@ class Invoice(NamedTuple):
     performances: List[Performance]
 
 
+class NoSuchPlayTypeError(Exception):
+    pass
+
+
 def billing_statement(invoice: Invoice, plays: Dict[str, Play]):
     total_amount = 0
     volume_credits = 0
@@ -34,7 +38,7 @@ def billing_statement(invoice: Invoice, plays: Dict[str, Play]):
                 this_amount += 10000 + 500 * (performance.audience - 30)
             this_amount += 300 * performance.audience
         else:
-            raise Exception(f"Unknown play type: {play.type}")
+            raise NoSuchPlayTypeError(f"Unknown play type: {play.type}")
 
         # Add volume credits
         volume_credits += max(0, performance.audience - 30)

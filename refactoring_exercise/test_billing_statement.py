@@ -4,7 +4,7 @@ from refactoring_exercise.billing_statement import (
     Play,
     Performance,
     Invoice,
-    billing_statement,
+    billing_statement, NoSuchPlayTypeError,
 )
 
 PLAYS = {
@@ -145,5 +145,5 @@ def test_unknown_play_type_raises_exception():
             Performance(play_id="curtains", audience=1),
         ],
     )
-    with pytest.raises(Exception):
+    with pytest.raises(NoSuchPlayTypeError):
         billing_statement(invoice=invoice, plays=plays)
