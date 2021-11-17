@@ -1,3 +1,5 @@
+import pytest
+
 from refactoring_exercise.billing_statement import (
     Play,
     Performance,
@@ -133,3 +135,15 @@ Amount owed is $2028.00
 You earned 133 credits
 """
     )
+
+
+def test_unknown_play_type_raises_exception():
+    plays = {"curtains": Play(name="Curtains", type="musical")}
+    invoice = Invoice(
+        customer="ConfusedCustomer",
+        performances=[
+            Performance(play_id="curtains", audience=1),
+        ],
+    )
+    with pytest.raises(Exception):
+        billing_statement(invoice=invoice, plays=plays)
