@@ -19,8 +19,8 @@ def test_tragedy_under_volume_threshold():
     assert (
         billing_statement(invoice=invoice, plays=PLAYS)
         == """Statement for ElectricCompany
-  The Glass Menagerie: $400.0 (25 seats)
-Amount owed is $400.0
+  The Glass Menagerie: $400.00 (25 seats)
+Amount owed is $400.00
 You earned 0 credits
 """
     )
@@ -34,8 +34,8 @@ def test_tragedy_exactly_volume_threshold():
     assert (
         billing_statement(invoice=invoice, plays=PLAYS)
         == """Statement for ElectricCompany
-  The Glass Menagerie: $400.0 (30 seats)
-Amount owed is $400.0
+  The Glass Menagerie: $400.00 (30 seats)
+Amount owed is $400.00
 You earned 0 credits
 """
     )
@@ -49,8 +49,8 @@ def test_tragedy_over_volume_threshold():
     assert (
         billing_statement(invoice=invoice, plays=PLAYS)
         == """Statement for ElectricCompany
-  The Glass Menagerie: $500.0 (40 seats)
-Amount owed is $500.0
+  The Glass Menagerie: $500.00 (40 seats)
+Amount owed is $500.00
 You earned 10 credits
 """
     )
@@ -64,8 +64,8 @@ def test_comedy_under_volume_threshold():
     assert (
         billing_statement(invoice=invoice, plays=PLAYS)
         == """Statement for StairMaster
-  Noises Off: $351.0 (17 seats)
-Amount owed is $351.0
+  Noises Off: $351.00 (17 seats)
+Amount owed is $351.00
 You earned 1 credits
 """
     )
@@ -79,8 +79,8 @@ def test_comedy_exactly_volume_threshold():
     assert (
         billing_statement(invoice=invoice, plays=PLAYS)
         == """Statement for StairMaster
-  Noises Off: $360.0 (20 seats)
-Amount owed is $360.0
+  Noises Off: $360.00 (20 seats)
+Amount owed is $360.00
 You earned 2 credits
 """
     )
@@ -94,8 +94,8 @@ def test_comedy_exactly_volume_credit_threshold():
     assert (
         billing_statement(invoice=invoice, plays=PLAYS)
         == """Statement for StairMaster
-  Noises Off: $490.0 (30 seats)
-Amount owed is $490.0
+  Noises Off: $490.00 (30 seats)
+Amount owed is $490.00
 You earned 3 credits
 """
     )
@@ -109,8 +109,8 @@ def test_comedy_above_both_thresholds():
     assert (
         billing_statement(invoice=invoice, plays=PLAYS)
         == """Statement for StairMaster
-  Noises Off: $626.0 (47 seats)
-Amount owed is $626.0
+  Noises Off: $626.00 (47 seats)
+Amount owed is $626.00
 You earned 21 credits
 """
     )
@@ -127,9 +127,9 @@ def test_multiple_performances():
     assert (
         billing_statement(invoice=invoice, plays=PLAYS)
         == """Statement for BigConglomerate
-  Noises Off: $938.0 (86 seats)
-  The Glass Menagerie: $1090.0 (99 seats)
-Amount owed is $2028.0
+  Noises Off: $938.00 (86 seats)
+  The Glass Menagerie: $1090.00 (99 seats)
+Amount owed is $2028.00
 You earned 133 credits
 """
     )

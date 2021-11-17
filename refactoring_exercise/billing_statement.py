@@ -22,8 +22,6 @@ def billing_statement(invoice: Invoice, plays: Dict[str, Play]):
     volume_credits = 0
     result = f"Statement for {invoice.customer}\n"
 
-    # TODO? Currency formatter
-
     for performance in invoice.performances:
         play = plays[performance.play_id]
         if play.type == "tragedy":
@@ -45,13 +43,10 @@ def billing_statement(invoice: Invoice, plays: Dict[str, Play]):
             volume_credits += math.floor(performance.audience / 10)
 
         # Add the line for this order
-        # TODO: use number formatting here
-        result += (
-            f"  {play.name}: ${this_amount / 100} ({performance.audience} seats)\n"
-        )
+        result += f"  {play.name}: ${(this_amount / 100):.2f} ({performance.audience} seats)\n"
         total_amount += this_amount
 
-    result += f"Amount owed is ${total_amount / 100}\n"
+    result += f"Amount owed is ${(total_amount / 100):.2f}\n"
     result += f"You earned {volume_credits} credits\n"
 
     return result
