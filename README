@@ -1,0 +1,5 @@
+This is a Python adaptation of the refactoring example code in Martin Fowler's Refactoring (2nd Edition).  It is not a line for line adaptation, but should be very familiar to anyone who has seen the original code.
+
+The code is intended for refactoring practice.  It is intentionally not good code.
+
+A comprehensive set of tests has been added so you can jump right into the refactoring.
