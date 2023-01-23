@@ -4,7 +4,8 @@ from billing_statement import (
     Play,
     Performance,
     Invoice,
-    billing_statement, NoSuchPlayTypeError,
+    billing_statement,
+    NoSuchPlayTypeError,
 )
 
 PLAYS = {
