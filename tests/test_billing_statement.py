@@ -1,6 +1,6 @@
 import pytest
 
-from refactoring_exercise.billing_statement import (
+from billing_statement import (
     Play,
     Performance,
     Invoice,
